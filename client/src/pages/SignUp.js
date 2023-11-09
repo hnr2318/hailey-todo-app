@@ -1,4 +1,4 @@
-import { Box, Typography, Button, TextField, RadioGroup, FormControlLabel, Radio, FormControl, FormLabel } from "@mui/material";
+import { Box, Typography, Button, TextField, RadioGroup, FormControlLabel, Radio, FormControl, FormLabel, Stack } from "@mui/material";
 import TextInput from "../components/TextInput";
 import { useState } from "react";
 import Joi from "joi";
@@ -51,8 +51,9 @@ export default function SignUp() {
         <Box className="center vertSpace">
             <SnackbarProvider />
             <form onSubmit={handleSignup}>
-                <Typography variant="h4">Sign Up</Typography>
-                {/* <TextInput
+                <Stack direction={"column"}>
+                    <Typography variant="h4">Sign Up</Typography>
+                    {/* <TextInput
                     label="What's your email?"
                     placeholder="Enter your email"
                     name="email"
@@ -64,16 +65,18 @@ export default function SignUp() {
                     required={true}
                     size="small"
                 /> */}
-                <TextField
-                    label="What's your email?"
-                    placeholder="Enter your email"
-                    name="email"
-                    value={data.email}
-                    onChange={inputChange}
-                    required
-                    size="small"
-                />
-                {/* <TextInput
+                    <FormControl>
+                        <FormLabel>What's your email?</FormLabel>
+                        <TextField
+                            placeholder="Email"
+                            name="email"
+                            value={data.email}
+                            onChange={inputChange}
+                            required
+                            size="small"
+                        />
+                    </FormControl>
+                    {/* <TextInput
                     label="Create a password"
                     placeholder="Create a password"
                     name="password"
@@ -86,17 +89,19 @@ export default function SignUp() {
                     required={true}
                     size="small"
                 /> */}
-                <TextField
-                    label="Create a password"
-                    placeholder="Create a password"
-                    name="password"
-                    value={data.password}
-                    type="password"
-                    onChange={inputChange}
-                    required
-                    size="small"
-                />
-                {/* <TextInput
+                    <FormControl>
+                        <FormLabel>Create a password</FormLabel>
+                        <TextField
+                            placeholder="password"
+                            name="password"
+                            value={data.password}
+                            type="password"
+                            onChange={inputChange}
+                            required
+                            size="small"
+                        />
+                    </FormControl>
+                    {/* <TextInput
                     label="What should we call you?"
                     placeholder="Enter a profile name"
                     name="name"
@@ -108,16 +113,18 @@ export default function SignUp() {
                     required={true}
                     size="small"
                 /> */}
-                <TextField
-                    label="What should we call you?"
-                    placeholder="Enter a profile name"
-                    name="name"
-                    value={data.name}
-                    onChange={inputChange}
-                    required
-                    size="small"
-                />
-                {/* <TextInput
+                    <FormControl>
+                        <FormLabel>What should we call you?</FormLabel>
+                        <TextField
+                            placeholder="Profile name"
+                            name="name"
+                            value={data.name}
+                            onChange={inputChange}
+                            required
+                            size="small"
+                        />
+                    </FormControl>
+                    {/* <TextInput
                     label="When's your birthday?"
                     placeholder="MM-DD-YYYY"
                     name="birthDate"
@@ -127,32 +134,35 @@ export default function SignUp() {
                     type="date"
                     size="small"
                 /> */}
-                <TextField
-                    label="When's your birthday?"
-                    placeholder="MM-DD-YYYY"
-                    name="birthDate"
-                    value={data.birthDate}
-                    onChange={inputChange}
-                    required
-                    type="date"
-                    size="small"
-                />
-                {/* <RadioInput
+                    <FormControl>
+                        <FormLabel>When's your birthday?</FormLabel>
+                        <TextField
+                            placeholder="MM-DD-YYYY"
+                            name="birthDate"
+                            value={data.birthDate}
+                            onChange={inputChange}
+                            required
+                            type="date"
+                            size="small"
+                        />
+                    </FormControl>
+                    {/* <RadioInput
                     label="What's your gender?"
                     name="gender"
                     handleInputState={handleInputState}
                     options={genders}
                     required={true}
                 /> */}
-                <FormControl>
-                    <FormLabel>Gender</FormLabel>
-                    <RadioGroup name="gender">
-                        <FormControlLabel value="male" control={<Radio />} label="Female"></FormControlLabel>
-                        <FormControlLabel value="female" control={<Radio />} label="Male"></FormControlLabel>
-                        <FormControlLabel value="other" control={<Radio />} label="Other"></FormControlLabel>
-                    </RadioGroup>
-                </FormControl>
-                <Button style={{ marginLeft: "2rem" }} variant="contained" label="Sign Up" type="submit">Sign Up</Button>
+                    <FormControl>
+                        <FormLabel>Gender</FormLabel>
+                        <RadioGroup name="gender">
+                            <FormControlLabel value="male" control={<Radio />} label="Female"></FormControlLabel>
+                            <FormControlLabel value="female" control={<Radio />} label="Male"></FormControlLabel>
+                            <FormControlLabel value="other" control={<Radio />} label="Other"></FormControlLabel>
+                        </RadioGroup>
+                    </FormControl>
+                    <Button style={{ marginLeft: "2rem" }} variant="contained" label="Sign Up" type="submit">Sign Up</Button>
+                </Stack>
             </form>
         </Box>
     )
