@@ -1,4 +1,4 @@
-import { Box, Typography, Button, TextField } from "@mui/material";
+import { Box, Typography, Button, TextField, RadioGroup, FormControlLabel, Radio, FormControl, FormLabel } from "@mui/material";
 import TextInput from "../components/TextInput";
 import { useState } from "react";
 import Joi from "joi";
@@ -73,7 +73,7 @@ export default function SignUp() {
                     required
                     size="small"
                 />
-                <TextInput
+                {/* <TextInput
                     label="Create a password"
                     placeholder="Create a password"
                     name="password"
@@ -85,8 +85,18 @@ export default function SignUp() {
                     type="password"
                     required={true}
                     size="small"
+                /> */}
+                <TextField
+                    label="Create a password"
+                    placeholder="Create a password"
+                    name="password"
+                    value={data.password}
+                    type="password"
+                    onChange={inputChange}
+                    required
+                    size="small"
                 />
-                <TextInput
+                {/* <TextInput
                     label="What should we call you?"
                     placeholder="Enter a profile name"
                     name="name"
@@ -97,8 +107,17 @@ export default function SignUp() {
                     error={errors.name}
                     required={true}
                     size="small"
+                /> */}
+                <TextField
+                    label="What should we call you?"
+                    placeholder="Enter a profile name"
+                    name="name"
+                    value={data.name}
+                    onChange={inputChange}
+                    required
+                    size="small"
                 />
-                <TextInput
+                {/* <TextInput
                     label="When's your birthday?"
                     placeholder="MM-DD-YYYY"
                     name="birthDate"
@@ -107,14 +126,32 @@ export default function SignUp() {
                     required={true}
                     type="date"
                     size="small"
+                /> */}
+                <TextField
+                    label="When's your birthday?"
+                    placeholder="MM-DD-YYYY"
+                    name="birthDate"
+                    value={data.birthDate}
+                    onChange={inputChange}
+                    required
+                    type="date"
+                    size="small"
                 />
-                <RadioInput
+                {/* <RadioInput
                     label="What's your gender?"
                     name="gender"
                     handleInputState={handleInputState}
                     options={genders}
                     required={true}
-                />
+                /> */}
+                <FormControl>
+                    <FormLabel>Gender</FormLabel>
+                    <RadioGroup name="gender">
+                        <FormControlLabel value="male" control={<Radio />} label="Female"></FormControlLabel>
+                        <FormControlLabel value="female" control={<Radio />} label="Male"></FormControlLabel>
+                        <FormControlLabel value="other" control={<Radio />} label="Other"></FormControlLabel>
+                    </RadioGroup>
+                </FormControl>
                 <Button style={{ marginLeft: "2rem" }} variant="contained" label="Sign Up" type="submit">Sign Up</Button>
             </form>
         </Box>
