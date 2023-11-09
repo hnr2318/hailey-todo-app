@@ -4,7 +4,7 @@ import { enqueueSnackbar } from 'notistack'
 export const createnote = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = "http://localhost:8080/api/notes";
+        const url = "https://hailey-todo-app.onrender.com/api/notes";
         const { data } = await axios({
             method: 'post',
             url: url,
@@ -26,7 +26,7 @@ export const getnotebyid = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
     const id = payload.id
 	try {
-        const url = "http://localhost:8080/api/notes/" + id;
+        const url = "https://hailey-todo-app.onrender.com/api/notes/" + id;
         const { data } = await axios({
             method: 'get',
             url: url,
@@ -47,7 +47,7 @@ export const getnotebyid = async (payload) => {
 export const deletenote = async (id) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = "http://localhost:8080/api/notes/" +id;
+        const url = "https://hailey-todo-app.onrender.com/api/notes/" +id;
         const { data } = await axios({
             method: 'delete',
             url: url,
@@ -67,7 +67,7 @@ export const deletenote = async (id) => {
 export const updatenote = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = `http://localhost:8080/api/notes/${payload.id}`;
+        const url = `https://hailey-todo-app.onrender.com/api/notes/${payload.id}`;
         const { data } = await axios({
             method: 'put',
             url: url,
@@ -87,7 +87,7 @@ export const updatenote = async (payload) => {
 export const getnotes = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = "http://localhost:8080/api/notes/user";
+        const url = "https://hailey-todo-app.onrender.com/api/notes/user";
         const { data } = await axios({
             method: 'get',
             url: url,
