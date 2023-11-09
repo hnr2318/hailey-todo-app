@@ -49,7 +49,7 @@ export default function ScrollableNotes({ setNotes, notes }) {
                     <li key={`section-1`}>
                         <ul style={{ padding: '1rem' }}>
                             <ListSubheader style={{ padding: "1rem" }}><Typography variant="h6">Notes</Typography></ListSubheader>
-                            {notes.map((note) => {
+                            {notes && notes.map((note) => {
                                 return (
                                     <ListItem key={note._id}>
                                         <IconButton aria-label="delete" onClick={() => handleDeleteNote(note._id)} style={{marginRight: "1.5rem"}}>

@@ -19,7 +19,7 @@ function RadioInput({
 		<div className="vertSpace">
 			<p>{label}</p>
 			<RadioGroup {...rest} row name={name} onChange={handleChange}>
-				{options.map((option, index) => (
+				{options && options.map((option, index) => (
 					<FormControlLabel
 						key={index}
 						value={option}

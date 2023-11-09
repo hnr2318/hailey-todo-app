@@ -65,7 +65,7 @@ export default function ScrollableLists({ setLists, lists }) {
                     <li key={`section-1`}>
                         <ul style={{ padding: '1rem' }}>
                             <ListSubheader style={{ padding: "1rem" }}><Typography variant="h6">Lists</Typography></ListSubheader>
-                            {lists.map((list) => {
+                            {lists && lists.map((list) => {
                                 return (
                                     <ListItem key={list._id}>
                                         <Accordion style={{ width: "100%" }}>
@@ -77,7 +77,7 @@ export default function ScrollableLists({ setLists, lists }) {
                                             </AccordionSummary>
                                             <AccordionDetails>
                                                 <List style={{ marginLeft: "2rem" }}>
-                                                    {list.tasks.map((task) => {
+                                                    {list.tasks && list.tasks.map((task) => {
                                                         return (
                                                             <ListItem key={task}>
                                                                 <IconButton aria-label="delete" onClick={() => handleRemoveTask(list._id, task)}>

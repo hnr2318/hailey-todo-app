@@ -49,7 +49,7 @@ export default function ScrollableTasks({ setTasks, tasks }) {
                     <li key={`section-1`}>
                         <ul style={{ padding: '1rem' }}>
                             <ListSubheader style={{ padding: "1rem" }}><Typography variant="h6">Tasks</Typography></ListSubheader>
-                            {tasks.map((task) => {
+                            {tasks && tasks.map((task) => {
                                 const formatDate = new Date(task.dueDate).toLocaleString('default', { dateStyle: 'medium' })
                                 return (
                                     <ListItem key={task._id}>

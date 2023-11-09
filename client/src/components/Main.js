@@ -73,7 +73,7 @@ export default function Main(props) {
             </List>
             <Divider />
             <List>
-                {lists.map((list) => (
+                {lists && lists.map((list) => (
                     <ListItem key={list._id} disablePadding>
                         <NavLink className="navLinks" to={`/single/list/${list._id}`}>
                             <ListItemButton>

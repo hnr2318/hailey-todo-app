@@ -6,7 +6,7 @@ export default function ListofTasks({tasks, handleOpenModal, late}) {
     return (
         <>
             <List>
-                {tasks.map((task) => {
+                {tasks && tasks.map((task) => {
                     var color = "primary"
                     if (task.status === 100) {
                         color = "success"
