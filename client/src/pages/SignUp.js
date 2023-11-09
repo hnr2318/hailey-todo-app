@@ -1,4 +1,4 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, TextField } from "@mui/material";
 import TextInput from "../components/TextInput";
 import { useState } from "react";
 import Joi from "joi";
@@ -6,12 +6,12 @@ import passwordComplexity from "joi-password-complexity";
 import RadioInput from "../components/Radio";
 import "../generalStyles.css"
 import { SnackbarProvider } from 'notistack'
-import {signup} from "../functions/userFunctions";
+import { signup } from "../functions/userFunctions";
+import { handleInputChange } from "../functions/inputChange"
 
 const genders = ["male", "female", "non-binary"];
 
 export default function SignUp() {
-
 
     const [data, setData] = useState({
         email: "",
@@ -42,12 +42,16 @@ export default function SignUp() {
         signup(errors, data);
     };
 
+    function inputChange(e) {
+        handleInputChange(e.target, setData)
+    }
+
     return (
         <Box className="center vertSpace">
             <SnackbarProvider />
             <form onSubmit={handleSignup}>
                 <Typography variant="h4">Sign Up</Typography>
-                <TextInput
+                {/* <TextInput
                     label="What's your email?"
                     placeholder="Enter your email"
                     name="email"
@@ -57,6 +61,15 @@ export default function SignUp() {
                     value={data.email}
                     error={errors.email}
                     required={true}
+                    size="small"
+                /> */}
+                <TextField
+                    label="What's your email?"
+                    placeholder="Enter your email"
+                    name="email"
+                    value={data.email}
+                    onChange={handleInputChange}
+                    required
                     size="small"
                 />
                 <TextInput
@@ -101,7 +114,7 @@ export default function SignUp() {
                     options={genders}
                     required={true}
                 />
-                <Button style={{marginLeft: "2rem"}} variant="contained" label="Sign Up" type="submit">Sign Up</Button>
+                <Button style={{ marginLeft: "2rem" }} variant="contained" label="Sign Up" type="submit">Sign Up</Button>
             </form>
         </Box>
     )
