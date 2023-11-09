@@ -43,6 +43,7 @@ export default function SignUp() {
     };
 
     function inputChange(e) {
+        console.log("input change")
         handleInputChange(e.target, setData)
     }
 
@@ -68,7 +69,7 @@ export default function SignUp() {
                     placeholder="Enter your email"
                     name="email"
                     value={data.email}
-                    onChange={handleInputChange}
+                    onChange={inputChange}
                     required
                     size="small"
                 />
