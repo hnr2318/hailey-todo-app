@@ -11,8 +11,12 @@ const listRoutes = require("./routes/lists");
 const searchRoutes = require("./routes/search")
 const app = express();
 
+const corsOptions = {
+    origin: "https://hailey-todo-app-static.onrender.com/",
+}
+
 connection();
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
