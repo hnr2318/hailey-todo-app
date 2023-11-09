@@ -7,7 +7,7 @@ import RadioInput from "../components/Radio";
 import "../generalStyles.css"
 import { SnackbarProvider } from 'notistack'
 import { signup } from "../functions/userFunctions";
-import { handleInputChange } from "../functions/inputChange"
+import handleInputChange from "../functions/inputChange"
 
 const genders = ["male", "female", "non-binary"];
 
