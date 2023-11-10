@@ -22,23 +22,26 @@ export default function SignUp() {
     });
     const [errors, setErrors] = useState({});
 
-    const handleInputState = (name, value) => {
-        setData((data) => ({ ...data, [name]: value }));
-    };
+    // const handleInputState = (name, value) => {
+    //     setData((data) => ({ ...data, [name]: value }));
+    // };
 
-    const handleErrorState = (name, value) => {
-        value === ""
-            ? delete errors[name]
-            : setErrors(() => ({ ...errors, [name]: value }));
-    };
+    // const handleErrorState = (name, value) => {
+    //     value === ""
+    //         ? delete errors[name]
+    //         : setErrors(() => ({ ...errors, [name]: value }));
+    // };
 
-    const schema = {
-        email: Joi.string().email({ tlds: false }).required().label("Email"),
-        password: passwordComplexity().required().label("Password"),
-        name: Joi.string().min(5).max(10).required().label("Name"),
-    };
+    // const schema = {
+    //     email: Joi.string().email({ tlds: false }).required().label("Email"),
+    //     password: passwordComplexity().required().label("Password"),
+    //     name: Joi.string().min(5).max(10).required().label("Name"),
+    // };
+
+
     const handleSignup = async (e) => {
         e.preventDefault();
+        console.log(data)
         signup(errors, data);
     };
 
@@ -156,8 +159,8 @@ export default function SignUp() {
                     <FormControl>
                         <FormLabel>Gender</FormLabel>
                         <RadioGroup name="gender">
-                            <FormControlLabel value="male" control={<Radio />} label="Female"></FormControlLabel>
-                            <FormControlLabel value="female" control={<Radio />} label="Male"></FormControlLabel>
+                            <FormControlLabel value="female" control={<Radio />} label="Female"></FormControlLabel>
+                            <FormControlLabel value="male" control={<Radio />} label="Male"></FormControlLabel>
                             <FormControlLabel value="other" control={<Radio />} label="Other"></FormControlLabel>
                         </RadioGroup>
                     </FormControl>

@@ -31,7 +31,7 @@ const validate = (user) => {
 		email: Joi.string().email().required(),
 		password: passwordComplexity().required(),
 		birthDate: Joi.date().required(),
-		gender: Joi.string().valid("male", "female", "non-binary").required(),
+		gender: Joi.string().valid("male", "female", "other").required(),
 	});
 	return schema.validate(user);
 };
