@@ -23,17 +23,20 @@ export const updateUser = async (payload) => {
 };
 
 export const signup = async (errors, data) => {
+    console.log(data)
     if (Object.keys(errors).length === 0) {
         try {
             const url = "https://hailey-todo-app.onrender.com/api/users";
             const response = await axios.post(url, data);
             enqueueSnackbar("Account created successfully", {variant: "success"})
+            console.log(response.status)
             if(response.status === 200){
                 setTimeout(() => {
                     window.location = "/login";
                 }, 1000);
             }
         } catch (error) {
+            console.log(error)
             if (
                 error.response &&
                 error.response.status >= 400 &&

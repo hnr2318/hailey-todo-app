@@ -41,7 +41,6 @@ export default function SignUp() {
 
     const handleSignup = async (e) => {
         e.preventDefault();
-        console.log(data)
         signup(errors, data);
     };
 
