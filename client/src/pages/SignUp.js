@@ -9,7 +9,7 @@ import { SnackbarProvider } from 'notistack'
 import { signup } from "../functions/userFunctions";
 import handleInputChange from "../functions/inputChange"
 
-const genders = ["male", "female", "non-binary"];
+// const genders = ["male", "female", "non-binary"];
 
 export default function SignUp() {
 
@@ -22,9 +22,9 @@ export default function SignUp() {
     });
     const [errors, setErrors] = useState({});
 
-    const handleInputState = (name, value) => {
-        setData((data) => ({ ...data, [name]: value }));
-    };
+    // const handleInputState = (name, value) => {
+    //     setData((data) => ({ ...data, [name]: value }));
+    // };
 
     // const handleErrorState = (name, value) => {
     //     value === ""
@@ -45,7 +45,6 @@ export default function SignUp() {
     };
 
     function inputChange(e) {
-        console.log("input change")
         handleInputChange(e.target, setData)
     }
 
@@ -148,21 +147,21 @@ export default function SignUp() {
                             size="small"
                         />
                     </FormControl>
-                    <RadioInput
+                    {/* <RadioInput
                     label="What's your gender?"
                     name="gender"
                     handleInputState={handleInputState}
                     options={genders}
                     required={true}
-                />
-                    {/* <FormControl>
+                /> */}
+                    <FormControl>
                         <FormLabel>Gender</FormLabel>
-                        <RadioGroup name="gender">
+                        <RadioGroup name="gender" value={data.gender} onChange={inputChange}>
                             <FormControlLabel value="female" control={<Radio />} label="Female"></FormControlLabel>
                             <FormControlLabel value="male" control={<Radio />} label="Male"></FormControlLabel>
                             <FormControlLabel value="other" control={<Radio />} label="Other"></FormControlLabel>
                         </RadioGroup>
-                    </FormControl> */}
+                    </FormControl>
                     <Button style={{ marginLeft: "2rem" }} variant="contained" label="Sign Up" type="submit">Sign Up</Button>
                 </Stack>
             </form>
