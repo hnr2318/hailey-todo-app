@@ -16,6 +16,7 @@ export default function Main(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [lists, setLists] = useState(() => JSON.parse(localStorage.getItem("lists")) ?? []);
+    const user = props.user
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -30,46 +31,60 @@ export default function Main(props) {
             <Toolbar />
             <Divider />
             <List>
-                <ListItem disablePadding>
-                    <NavLink className="navLinks" to="/">
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <HomeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Home" />
-                        </ListItemButton>
-                    </NavLink>
-                </ListItem>
-                <ListItem disablePadding>
-                    <NavLink className="navLinks" to="/collection/lists">
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <ChecklistIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Manage Lists" />
-                        </ListItemButton>
-                    </NavLink>
-                </ListItem>
-                <ListItem disablePadding>
-                    <NavLink className="navLinks" to="/collection/tasks">
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <TaskIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Manage Tasks" />
-                        </ListItemButton>
-                    </NavLink>
-                </ListItem>
-                <ListItem disablePadding>
-                    <NavLink className="navLinks" to="/collection/notes">
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <NotesIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Manage Notes" />
-                        </ListItemButton>
-                    </NavLink>
-                </ListItem>
+                {user ? <>
+                    <ListItem disablePadding>
+                        <NavLink className="navLinks" to="/">
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <HomeIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Home" />
+                            </ListItemButton>
+                        </NavLink>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <NavLink className="navLinks" to="/collection/lists">
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <ChecklistIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Manage Lists" />
+                            </ListItemButton>
+                        </NavLink>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <NavLink className="navLinks" to="/collection/tasks">
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <TaskIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Manage Tasks" />
+                            </ListItemButton>
+                        </NavLink>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <NavLink className="navLinks" to="/collection/notes">
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <NotesIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Manage Notes" />
+                            </ListItemButton>
+                        </NavLink>
+                    </ListItem>
+                </>
+                    :
+                    <ListItem disablePadding>
+                        <NavLink className="navLinks" to="/">
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <HomeIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Sign Up" />
+                            </ListItemButton>
+                        </NavLink>
+                    </ListItem>
+                }
             </List>
             <Divider />
             <List>
@@ -78,8 +93,8 @@ export default function Main(props) {
                         <NavLink className="navLinks" to={`/single/list/${list._id}`}>
                             <ListItemButton>
                                 <ListItemIcon>
-                                <ArrowRightIcon/>
-                            </ListItemIcon>
+                                    <ArrowRightIcon />
+                                </ListItemIcon>
                                 <ListItemText primary={list.name} />
                             </ListItemButton>
                         </NavLink>
