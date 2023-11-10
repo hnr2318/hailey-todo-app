@@ -5,7 +5,7 @@ import { enqueueSnackbar } from 'notistack'
 export const updateUser = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-		const url = `https://hailey-todo-app.onrender.com/api/users/${payload.id}`;
+		const url = `https://hailey-todo-app.onrender.com/users/${payload.id}`;
 		const { data } = await axios({
             method: 'put',
             url: url,
@@ -26,7 +26,7 @@ export const signup = async (errors, data) => {
     console.log(data)
     if (Object.keys(errors).length === 0) {
         try {
-            const url = "https://hailey-todo-app.onrender.com/api/users";
+            const url = "https://hailey-todo-app.onrender.com/users";
             const response = await axios.post(url, data);
             enqueueSnackbar("Account created successfully", {variant: "success"})
             console.log(response.status)
@@ -54,7 +54,7 @@ export const signup = async (errors, data) => {
 
 export const login = async (payload) => {
     try {
-        const url = "https://hailey-todo-app.onrender.com/api/login";
+        const url = "https://hailey-todo-app.onrender.com/login";
         const { data } = await axios.post(url, payload);
         const decodeData = jwt_decode(data.data);
         enqueueSnackbar(data.message, {variant: "success"});

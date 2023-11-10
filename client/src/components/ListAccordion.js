@@ -15,7 +15,7 @@ export default function ListAccordion({ id, name, desc }) {
 
 	const getListTasks = async (id) => {
 		try {
-			const url = "https://hailey-todo-app.onrender.com/api/lists/" + id;
+			const url = "https://hailey-todo-app.onrender.com/lists/" + id;
 			const { data } = await axios({
 				method: 'get',
 				url: url,

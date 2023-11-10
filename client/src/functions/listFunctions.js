@@ -4,7 +4,7 @@ import { enqueueSnackbar } from 'notistack'
 export const getlists = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = "https://hailey-todo-app.onrender.com/api/lists/user";
+        const url = "https://hailey-todo-app.onrender.com/lists/user";
         const { data } = await axios({
             method: 'get',
             url: url,
@@ -25,7 +25,7 @@ export const getlistbyid = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
     const id = payload.id
 	try {
-        const url = "https://hailey-todo-app.onrender.com/api/lists/" + id;
+        const url = "https://hailey-todo-app.onrender.com/lists/" + id;
         const { data } = await axios({
             method: 'get',
             url: url,
@@ -46,7 +46,7 @@ export const getlistbyid = async (payload) => {
 export const deletelist = async (id) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = "https://hailey-todo-app.onrender.com/api/lists/" +id;
+        const url = "https://hailey-todo-app.onrender.com/lists/" +id;
         const { data } = await axios({
             method: 'delete',
             url: url,
@@ -65,7 +65,7 @@ export const deletelist = async (id) => {
 export const createlist = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = "https://hailey-todo-app.onrender.com/api/lists";
+        const url = "https://hailey-todo-app.onrender.com/lists";
         const { data } = await axios({
             method: 'post',
             url: url,
@@ -85,7 +85,7 @@ export const createlist = async (payload) => {
 export const removeTaskFromList = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = "https://hailey-todo-app.onrender.com//api/lists/remove-task";
+        const url = "https://hailey-todo-app.onrender.com//lists/remove-task";
         const { data } = await axios({
             method: 'put',
             url: url,
@@ -105,7 +105,7 @@ export const removeTaskFromList = async (payload) => {
 export const addTaskToList = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = "https://hailey-todo-app.onrender.com/api/lists/add-task";
+        const url = "https://hailey-todo-app.onrender.com/lists/add-task";
         const { data } = await axios({
             method: 'put',
             url: url,

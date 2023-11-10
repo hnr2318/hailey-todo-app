@@ -21,7 +21,7 @@ function App() {
       <BrowserRouter>
         <Main user={user} />
         <Routes>
-          {user ? <Route exact path="/" element={<Home />} /> : <Route exact path="/" element={<Signup />} />}
+          {user ? <Route exact path="/" element={<Home />} /> : <Route exact path="/" element={<SignUp />} />}
           <Route exact path="/addTaskToList" element={<AddTaskToList />} />
           <Route exact path="/collection/tasks" element={<Tasks />} />
           <Route exact path="/collection/lists" element={<Lists />} />

@@ -4,7 +4,7 @@ import { enqueueSnackbar } from 'notistack'
 export const createtask = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = "https://hailey-todo-app.onrender.com/api/tasks";
+        const url = "https://hailey-todo-app.onrender.com/tasks";
         const { data } = await axios({
             method: 'post',
             url: url,
@@ -25,7 +25,7 @@ export const gettaskbyid = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
     const id = payload.id
 	try {
-        const url = "https://hailey-todo-app.onrender.com/api/tasks/" + id;
+        const url = "https://hailey-todo-app.onrender.com/tasks/" + id;
         const { data } = await axios({
             method: 'get',
             url: url,
@@ -46,7 +46,7 @@ export const gettaskbyid = async (payload) => {
 export const deletetask = async (id) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = "https://hailey-todo-app.onrender.com/api/tasks/" +id;
+        const url = "https://hailey-todo-app.onrender.com/tasks/" +id;
         const { data } = await axios({
             method: 'delete',
             url: url,
@@ -65,7 +65,7 @@ export const deletetask = async (id) => {
 export const updateTask = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = `https://hailey-todo-app.onrender.com/api/tasks/${payload.id}`;
+        const url = `https://hailey-todo-app.onrender.com/tasks/${payload.id}`;
         const { data } = await axios({
             method: 'put',
             url: url,
@@ -85,7 +85,7 @@ export const updateTask = async (payload) => {
 export const gettasks = async (payload) => {
     const token = JSON.parse(localStorage.getItem("token"));
 	try {
-        const url = "https://hailey-todo-app.onrender.com/api/tasks/user";
+        const url = "https://hailey-todo-app.onrender.com/tasks/user";
         const { data } = await axios({
             method: 'get',
             url: url,

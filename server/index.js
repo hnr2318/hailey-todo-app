@@ -19,12 +19,12 @@ connection();
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use("/api/users", userRoutes);
-app.use("/api/login", authRoutes);
-app.use("/api/tasks", taskRoutes);
-app.use("/api/notes", noteRoutes);
-app.use("/api/lists", listRoutes);
-app.use("/api/", searchRoutes);
+app.use("/users", userRoutes);
+app.use("/login", authRoutes);
+app.use("/tasks", taskRoutes);
+app.use("/notes", noteRoutes);
+app.use("/lists", listRoutes);
+app.use("/", searchRoutes);
 
 const port = process.env.PORT || 8080;
 app.listen(port, console.log(`Listening on port ${port}`))
