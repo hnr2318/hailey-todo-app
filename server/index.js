@@ -12,7 +12,7 @@ const searchRoutes = require("./routes/search")
 const app = express();
 
 const corsOptions = {
-    origin: "https://hailey-todo-app-static.onrender.com/",
+    origin: "https://hailey-todo-app-static.onrender.com",
 }
 
 connection();
